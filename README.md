@@ -22,6 +22,14 @@ curl -fsSL git.io/tmate.sh | bash
 [sudo] rm -f /usr/local/bin/tmate
 ```
 
+## oh-my-tmux.sh
+
+Install Oh My Tmux
+
+```
+curl -fsSL git.io/oh-my-tmux.sh | bash
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
