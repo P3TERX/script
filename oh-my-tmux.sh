@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #=================================================
 # Description: Install Oh My Tmux
 # System Required: Debian/Ubuntu or other
+# Version: 1.0
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
