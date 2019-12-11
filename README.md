@@ -11,13 +11,11 @@ Linux automatically mount any of Rclone's cloud storage systems as a file system
 Install the latest version tmate
 
 - Install tmate
-
 ```
 curl -fsSL git.io/tmate.sh | bash
 ```
 
 - Uninstall tmate
-
 ```
 [sudo] rm -f /usr/local/bin/tmate
 ```
@@ -30,6 +28,17 @@ Install Oh My Tmux
 curl -fsSL git.io/oh-my-tmux.sh | bash
 ```
 
+## gotop.sh
+
+- Install gotop
+```
+curl -fsSL git.io/gotop.sh | bash
+```
+
+- Uninstall gotop
+```
+[sudo] rm -f /usr/local/bin/gotop
+```
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
