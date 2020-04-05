@@ -4,7 +4,7 @@
 # File name: ffsend.sh
 # Description: Install the latest version ffsend
 # System Required: Debian/Ubuntu or other
-# Version: 1.0
+# Version: 1.1
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
@@ -13,8 +13,6 @@
     echo -e "This operating system is not supported."
     exit 1
 }
-[ $EUID != 0 ] && SUDO=sudo
-$SUDO echo || exit 1
 Green_font_prefix="\033[32m"
 Red_font_prefix="\033[31m"
 Green_background_prefix="\033[42;37m"
@@ -43,6 +41,10 @@ chmod +x ffsend
 
 if [[ $1 = "install" ]]; then
     echo -e "${INFO} Install ffsend ..."
+    [ $EUID != 0 ] && {
+        SUDO=sudo
+        echo -e "${INFO} You may need to enter a password to authorize."
+    }
     $SUDO mv -vf ffsend /usr/local/bin && {
         echo -e "${INFO} ffsend successful installation !"
         ffsend --version
