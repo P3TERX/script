@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #=================================================
+# https://github.com/P3TERX/script
+# File name: oh-my-tmux.sh
 # Description: Install Oh My Tmux
 # System Required: Debian/Ubuntu or other
 # Version: 1.0

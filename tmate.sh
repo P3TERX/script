@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #=================================================
+# https://github.com/P3TERX/script
+# File name: tmate.sh
 # Description: Install the latest version tmate
 # System Required: Debian/Ubuntu or other
 # Version: 1.0

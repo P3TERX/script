@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #=================================================
+# https://github.com/P3TERX/script
+# File name: gotop.sh
 # Description: Install gotop
 # System Required: GNU/Linux
 # Version: 1.0
