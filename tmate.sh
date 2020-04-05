@@ -4,7 +4,7 @@
 # File name: tmate.sh
 # Description: Install the latest version tmate
 # System Required: Debian/Ubuntu or other
-# Version: 1.1
+# Version: 1.2
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
@@ -21,23 +21,30 @@ Red_background_prefix="\033[41;37m"
 Font_color_suffix="\033[0m"
 INFO="[${Green_font_prefix}INFO${Font_color_suffix}]"
 ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
-ARCH=$(uname -m)
-if [[ ${ARCH} == "x86_64" ]]; then
-    ARCH="amd64"
-elif [[ ${ARCH} == "i386" || ${ARCH} == "i686" ]]; then
-    ARCH="i386"
-elif [[ ${ARCH} == "aarch64" ]]; then
-    ARCH="arm64v8"
-else
-    echo -e "${ERROR} This architecture is not supported."
-    exit 1
-fi
 
 [ $EUID != 0 ] && {
     SUDO=sudo
     echo -e "${INFO} You may need to enter a password to authorize."
 }
 $SUDO echo || exit 1
+
+ARCH=$(uname -m)
+[ $(command -v dpkg) ] \
+&& dpkgARCH=$(dpkg --print-architecture | awk -F- '{ print $NF }')
+
+echo -e "${INFO} Check the architecture ..."
+if [[ $ARCH == i*86 || $dpkgARCH == i*86 ]]; then
+    ARCH="i386"
+elif [[ $ARCH == "x86_64" || $dpkgARCH == "amd64" ]]; then
+    ARCH="amd64"
+elif [[ $ARCH == "aarch64" || $dpkgARCH == "arm64" ]]; then
+    ARCH="arm64v8"
+elif [[ $ARCH == "armv7l" || $dpkgARCH == "armhf" ]]; then
+    ARCH="arm32v7"
+else
+    echo -e "${ERROR} This architecture is not supported."
+    exit 1
+fi
 
 echo -e "${INFO} Check the version of tmate ..."
 tmate_ver=$(curl -fsSL https://api.github.com/repos/tmate-io/tmate/releases | grep -o '"tag_name": ".*"' | head -n 1 | sed 's/"//g;s/v//g' | sed 's/tag_name: //g')
