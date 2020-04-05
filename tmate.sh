@@ -4,7 +4,7 @@
 # File name: tmate.sh
 # Description: Install the latest version tmate
 # System Required: Debian/Ubuntu or other
-# Version: 1.0
+# Version: 1.1
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
@@ -13,8 +13,7 @@
     echo -e "This operating system is not supported."
     exit 1
 }
-[ $EUID != 0 ] && SUDO=sudo
-$SUDO echo || exit 1
+
 Green_font_prefix="\033[32m"
 Red_font_prefix="\033[31m"
 Green_background_prefix="\033[42;37m"
@@ -33,6 +32,13 @@ else
     echo -e "${ERROR} This architecture is not supported."
     exit 1
 fi
+
+[ $EUID != 0 ] && {
+    SUDO=sudo
+    echo -e "${INFO} You may need to enter a password to authorize."
+}
+$SUDO echo || exit 1
+
 echo -e "${INFO} Check the version of tmate ..."
 tmate_ver=$(curl -fsSL https://api.github.com/repos/tmate-io/tmate/releases | grep -o '"tag_name": ".*"' | head -n 1 | sed 's/"//g;s/v//g' | sed 's/tag_name: //g')
 [ -z $tmate_ver ] && {
@@ -50,14 +56,16 @@ tmate_ver=$(curl -fsSL https://api.github.com/repos/tmate-io/tmate/releases | gr
 }
 tmate_name="tmate-${tmate_ver}-static-linux-${ARCH}"
 echo -e "${INFO} Download tmate ..."
-curl -fsSLO "https://github.com/tmate-io/tmate/releases/download/${tmate_ver}/${tmate_name}.tar.xz" || {
+curl -fsSL "https://github.com/tmate-io/tmate/releases/download/${tmate_ver}/${tmate_name}.tar.xz" | tar Jxf - --strip-components=1
+
+[ -s tmate ] && echo -e "${INFO} tmate download successful !" || {
     echo -e "${ERROR} Unable to download tmate, network failure or other error."
     exit 1
 }
+
 echo -e "${INFO} Installation tmate ..."
-tar Jxvf ${tmate_name}.tar.xz >/dev/null
-$SUDO mv ${tmate_name}/tmate /usr/local/bin && echo -e "${INFO} tmate successful installation !" || {
+$SUDO mv -vf tmate /usr/local/bin && echo -e "${INFO} tmate successful installation !" || {
     echo -e "${ERROR} tmate installation failed !"
     exit 1
 }
-rm -rf ${tmate_name}*
+exit 0
