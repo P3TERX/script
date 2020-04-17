@@ -4,7 +4,7 @@
 # File name: oh-my-tmux.sh
 # Description: Install Oh My Tmux
 # System Required: Debian/Ubuntu or other
-# Version: 1.0
+# Version: 1.1
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
@@ -17,6 +17,7 @@ Font_color_suffix="\033[0m"
 INFO="[${Green_font_prefix}INFO${Font_color_suffix}]"
 ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
 [ $(command -v git) ] || echo -e "${ERROR} Git is not installed."
+[ $(command -v tmux) ] || echo -e "${ERROR} tmux is not installed."
 echo -e "${INFO} Installation Oh My Tmux ..."
 [[ -e $HOME/.tmux.conf && ! -h $HOME/.tmux.conf ]] && mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 rm -rf $HOME/.tmux
