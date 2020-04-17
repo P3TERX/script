@@ -28,6 +28,14 @@ Install [Oh My Tmux](https://github.com/gpakosz/.tmux)
 curl -fsSL git.io/oh-my-tmux.sh | bash
 ```
 
+## oh-my-zsh.sh
+
+Install a simple [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh) environment using [Antigen](https://github.com/zsh-users/antigen)
+
+```
+curl -fsSL git.io/oh-my-zsh.sh | bash
+```
+
 ## gotop.sh
 
 Install the latest version [gotop](https://github.com/cjbassi/gotop)
