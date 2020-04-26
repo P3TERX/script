@@ -65,6 +65,16 @@ curl -fsSL git.io/ffsend.sh | bash -s install
 [sudo] rm -f /usr/local/bin/ffsend
 ```
 
+## github-actions-trigger.sh
+
+GitHub Actions trigger script
+
+See details：[GitHub Actions Docs: Events that trigger workflows](https://help.github.com/en/actions/reference/events-that-trigger-workflows#external-events-repository_dispatch)
+
+```
+sh <(curl -fsSL git.io/trigger.sh) "TOKEN" "REPO_NAME" "EVENT_TYPE"
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
