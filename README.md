@@ -50,6 +50,21 @@ curl -fsSL git.io/gotop.sh | bash
 [sudo] rm -f /usr/local/bin/gotop
 ```
 
+## ctop.sh
+
+Install the latest version [ctop](https://github.com/bcicen/ctop)
+
+- Download & Install ctop
+```
+curl -fsSL git.io/ctop.sh | bash
+curl -fsSL git.io/ctop.sh | bash -s install
+```
+
+- Uninstall ctop
+```
+[sudo] rm -f /usr/local/bin/ctop
+```
+
 ## ffsend.sh
 
 Install the latest version [ffsend](https://github.com/timvisee/ffsend)
