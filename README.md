@@ -36,6 +36,21 @@ Install a simple [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh) environment usi
 curl -fsSL git.io/oh-my-zsh.sh | bash
 ```
 
+## bashtop.sh
+
+Install the latest version [bashtop](https://github.com/aristocratos/bashtop)
+
+- Download & Install bashtop
+```
+curl -fsSL git.io/bashtop.sh | bash
+curl -fsSL git.io/bashtop.sh | bash -s install
+```
+
+- Uninstall bashtop
+```
+[sudo] rm -f /usr/local/bin/bashtop
+```
+
 ## gotop.sh
 
 Install the latest version [gotop](https://github.com/cjbassi/gotop)
