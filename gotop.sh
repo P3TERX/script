@@ -4,7 +4,7 @@
 # File name: gotop.sh
 # Description: Install gotop
 # System Required: GNU/Linux
-# Version: 1.1
+# Version: 1.2
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
@@ -25,14 +25,23 @@ curl -fsSL https://raw.githubusercontent.com/cjbassi/gotop/master/scripts/downlo
     exit 1
 }
 
-echo -e "${INFO} Installation gotop ..."
-[ $EUID != 0 ] && {
-    SUDO=sudo
-    echo -e "${INFO} You may need to enter a password to authorize."
-}
-$SUDO mv -vf gotop /usr/local/bin
-$SUDO chmod +x /usr/local/bin/gotop && echo -e "${INFO} gotop successful installation !" || {
-    echo -e "${ERROR} gotop installation failed !"
-    exit 1
-}
+chmod +x gotop
+
+if [[ $1 = "install" ]]; then
+    echo -e "${INFO} Installing gotop ..."
+    [ $EUID != 0 ] && {
+        SUDO=sudo
+        echo -e "${INFO} You may need to enter a password to authorize."
+    }
+    $SUDO mv -vf gotop /usr/local/bin && {
+        echo -e "${INFO} gotop installed successfully !"
+        gotop -V
+    } || {
+        echo -e "${ERROR} gotop installation failed !"
+        exit 1
+    }
+else
+    ./gotop -V
+fi
+
 exit 0
