@@ -106,6 +106,20 @@ See details：[GitHub Actions Docs: Events that trigger workflows](https://help.
 sh <(curl -fsSL git.io/trigger.sh) "TOKEN" "REPO_NAME" "EVENT_TYPE"
 ```
 
+## fclone.sh
+
+Install the latest version [fclone](https://github.com/mawaya/rclone/releases/latest)
+
+- Install fclone
+```
+curl -fsSL git.io/fclone.sh | bash
+```
+
+- Uninstall fclone
+```
+[sudo] rm -f /usr/bin/fclone
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
