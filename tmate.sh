@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
-#=================================================
+#
+# Copyright (c) 2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
 # https://github.com/P3TERX/script
 # File name: tmate.sh
 # Description: Install the latest version tmate
 # System Required: Debian/Ubuntu or other
-# Version: 1.2
-# Lisence: MIT
-# Author: P3TERX
-# Blog: https://p3terx.com
-#=================================================
+# Version: 1.3
+#
+
 [ $(uname) != Linux ] && {
     echo -e "This operating system is not supported."
     exit 1
@@ -29,8 +32,8 @@ ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
 $SUDO echo || exit 1
 
 ARCH=$(uname -m)
-[ $(command -v dpkg) ] \
-&& dpkgARCH=$(dpkg --print-architecture | awk -F- '{ print $NF }')
+[ $(command -v dpkg) ] &&
+    dpkgARCH=$(dpkg --print-architecture | awk -F- '{ print $NF }')
 
 echo -e "${INFO} Check the architecture ..."
 if [[ $ARCH == i*86 || $dpkgARCH == i*86 ]]; then
@@ -71,7 +74,7 @@ curl -fsSL "https://github.com/tmate-io/tmate/releases/download/${tmate_ver}/${t
 }
 
 echo -e "${INFO} Installation tmate ..."
-$SUDO mv -vf tmate /usr/local/bin && echo -e "${INFO} tmate successful installation !" || {
+$SUDO mv -f tmate /usr/local/bin && echo -e "${INFO} tmate successful installation !" || {
     echo -e "${ERROR} tmate installation failed !"
     exit 1
 }
