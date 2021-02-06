@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
-#=================================================
+#
+# Copyright (c) 2020-2021 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
 # https://github.com/P3TERX/script
-# File name: ctop.sh
-# Description: Install the latest version ctop
-# System Required: Debian/Ubuntu or other
-# Version: 1.0
-# Lisence: MIT
-# Author: P3TERX
-# Blog: https://p3terx.com
-#=================================================
-[ $(uname) != Linux ] && {
-    echo -e "This operating system is not supported."
-    exit 1
-}
+# File name: docker-compose.sh
+# Description: Install latest version ctop
+# System Required: GNU/Linux
+# Version: 2.0
+#
+
+set -o errexit
+set -o errtrace
+set -o pipefail
+set -o nounset
+
 Green_font_prefix="\033[32m"
 Red_font_prefix="\033[31m"
 Green_background_prefix="\033[42;37m"
@@ -21,48 +25,59 @@ Font_color_suffix="\033[0m"
 INFO="[${Green_font_prefix}INFO${Font_color_suffix}]"
 ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
 
-ARCH=$(uname -m)
-[ $(command -v dpkg) ] &&
-    dpkgARCH=$(dpkg --print-architecture | awk -F- '{ print $NF }')
+PROJECT_NAME='ctop'
+GH_API_URL='https://api.github.com/repos/bcicen/ctop/releases/latest'
+BIN_DIR='/usr/local/bin'
+BIN_NAME='ctop'
+BIN_FILE="${BIN_DIR}/${BIN_NAME}"
 
-echo -e "${INFO} Check CPU architecture ..."
-if [[ $ARCH == "x86_64" || $dpkgARCH == "amd64" ]]; then
-    ARCH="amd64"
-elif [[ $ARCH == "aarch64" || $dpkgARCH == "arm64" ]]; then
-    ARCH="arm64"
-elif [[ $ARCH == "armv7l" || $dpkgARCH == "armhf" ]]; then
-    ARCH="arm"
-else
-    echo -e "${ERROR} This architecture is not supported."
+if [[ $(uname -s) != Linux ]]; then
+    echo -e "${ERROR} This operating system is not supported."
     exit 1
 fi
 
-echo -e "${INFO} Download ctop ..."
-wget -nv -O- https://api.github.com/repos/bcicen/ctop/releases/latest |
-    grep "browser_download_url.*linux-$ARCH\"" |
-    cut -d '"' -f 4 |
-    wget -nv -O ctop -i-
-
-[ -s ctop ] && echo -e "${INFO} ctop download successful !" || {
-    echo -e "${ERROR} Unable to download ctop, network failure or other error."
+if [[ $(id -u) != 0 ]]; then
+    echo -e "${ERROR} This script must be run as root."
     exit 1
-}
+fi
 
-chmod +x ctop
-
-if [[ $1 = "install" ]]; then
-    echo -e "${INFO} Installing ctop ..."
-    [ $EUID != 0 ] && {
-        SUDO=sudo
-        echo -e "${INFO} You may need to enter a password to authorize."
-    }
-    $SUDO mv -vf ctop /usr/local/bin && {
-        echo -e "${INFO} ctop installed successfully !"
-        ctop -v
-    } || {
-        echo -e "${ERROR} ctop installation failed !"
-        exit 1
-    }
+echo -e "${INFO} Get CPU architecture ..."
+if [[ $(command -v apk) ]]; then
+    PKGT='(apk)'
+    OS_ARCH=$(apk --print-arch)
+elif [[ $(command -v dpkg) ]]; then
+    PKGT='(dpkg)'
+    OS_ARCH=$(dpkg --print-architecture | awk -F- '{ print $NF }')
 else
-    ./ctop -v
+    OS_ARCH=$(uname -m)
+fi
+case ${OS_ARCH} in
+x86_64 | amd64)
+    FILE_KEYWORD='linux-amd64'
+    ;;
+aarch64 | arm64)
+    FILE_KEYWORD='linux-arm64'
+    ;;
+arm*)
+    FILE_KEYWORD='linux-arm'
+    ;;
+*)
+    echo -e "${ERROR} Unsupported architecture: ${OS_ARCH} ${PKGT}"
+    exit 1
+    ;;
+esac
+echo -e "${INFO} Architecture: ${OS_ARCH} ${PKGT}"
+
+echo -e "${INFO} Get ${PROJECT_NAME} download URL ..."
+DOWNLOAD_URL=$(curl -fsSL ${GH_API_URL} | grep 'browser_download_url' | cut -d'"' -f4 | grep "${FILE_KEYWORD}")
+echo -e "${INFO} Download URL: ${DOWNLOAD_URL}"
+
+echo -e "${INFO} Installing ${PROJECT_NAME} ..."
+curl -LS "${DOWNLOAD_URL}" -o ${BIN_FILE}
+chmod +x ${BIN_FILE}
+if [[ -s ${BIN_FILE} && $(${BIN_NAME} -v) ]]; then
+    echo -e "${INFO} Done."
+else
+    echo -e "${ERROR} ${PROJECT_NAME} installation failed !"
+    exit 1
 fi
