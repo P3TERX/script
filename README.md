@@ -120,6 +120,20 @@ curl -fsSL git.io/fclone.sh | bash
 [sudo] rm -f /usr/bin/fclone
 ```
 
+## docker-compose.sh
+
+Install latest version [Docker Compose](https://github.com/docker/compose)
+
+- Install Docker Compose
+```
+curl -fsSL git.io/docker-compose.sh | sudo bash
+```
+
+- Uninstall Docker Compose
+```
+sudo rm -f /usr/local/bin/docker-compose
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
