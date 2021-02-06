@@ -70,15 +70,14 @@ curl -fsSL git.io/gotop.sh | bash -s install
 
 Install the latest version [ctop](https://github.com/bcicen/ctop)
 
-- Download & Install ctop
+- Install ctop
 ```
-curl -fsSL git.io/ctop.sh | bash
-curl -fsSL git.io/ctop.sh | bash -s install
+curl -fsSL git.io/ctop.sh | sudo bash
 ```
 
 - Uninstall ctop
 ```
-[sudo] rm -f /usr/local/bin/ctop
+sudo rm -f /usr/local/bin/ctop
 ```
 
 ## ffsend.sh
@@ -132,6 +131,20 @@ curl -fsSL git.io/docker-compose.sh | sudo bash
 - Uninstall Docker Compose
 ```
 sudo rm -f /usr/local/bin/docker-compose
+```
+
+## lazydocker.sh
+
+Install latest version [lazydocker](https://github.com/jesseduffield/lazydocker)
+
+- Install lazydocker
+```
+curl -fsSL git.io/lazydocker.sh | sudo bash
+```
+
+- Uninstall lazydocker
+```
+sudo rm -f /usr/local/bin/lazydocker
 ```
 
 ## Lisence
