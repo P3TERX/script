@@ -147,6 +147,20 @@ curl -fsSL git.io/lazydocker.sh | sudo bash
 sudo rm -f /usr/local/bin/lazydocker
 ```
 
+## wgcf.sh
+
+Install latest version [wgcf](https://github.com/ViRb3/wgcf/releases/latest)
+
+- Install wgcf
+```
+curl -fsSL git.io/wgcf.sh | sudo bash
+```
+
+- Uninstall wgcf
+```
+sudo rm -f /usr/local/bin/wgcf
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
