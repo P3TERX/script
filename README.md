@@ -161,6 +161,20 @@ curl -fsSL git.io/wgcf.sh | sudo bash
 sudo rm -f /usr/local/bin/wgcf
 ```
 
+## wireguard-go.sh
+
+Install latest version [wireguard-go](https://github.com/P3TERX/wireguard-go-builder/releases/latest)
+
+- Install wireguard-go
+```
+curl -fsSL git.io/wireguard-go.sh | sudo bash
+```
+
+- Uninstall wireguard-go
+```
+sudo rm -f /usr/local/bin/wireguard-go
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
