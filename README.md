@@ -175,6 +175,20 @@ curl -fsSL git.io/wireguard-go.sh | sudo bash
 sudo rm -f /usr/local/bin/wireguard-go
 ```
 
+## duf.sh
+
+Install latest version [duf](https://github.com/muesli/duf/releases/latest)
+
+- Install duf
+```
+curl -fsSL git.io/duf.sh | sudo bash
+```
+
+- Uninstall duf
+```
+sudo rm -f /usr/local/bin/duf
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
