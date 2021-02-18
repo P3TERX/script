@@ -189,6 +189,20 @@ curl -fsSL git.io/duf.sh | sudo bash
 sudo rm -f /usr/local/bin/duf
 ```
 
+## speedtest-cli.sh
+
+Install [Ookla Speedtest CLI](https://www.speedtest.net/apps/cli)
+
+- Install Ookla Speedtest CLI
+```
+curl -fsSL git.io/speedtest-cli.sh | sudo bash
+```
+
+- Uninstall Ookla Speedtest CLI
+```
+sudo rm -f /usr/local/bin/speedtest
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
