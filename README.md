@@ -202,6 +202,20 @@ curl -fsSL git.io/speedtest-cli.sh | sudo bash
 sudo rm -f /usr/local/bin/speedtest
 ```
 
+## lsd.sh
+
+Install latest version [LSD](https://github.com/Peltoche/lsd/releases/latest)
+
+- Install lsd
+```
+curl -fsSL git.io/lsd.sh | sudo bash
+```
+
+- Uninstall lsd
+```
+sudo rm -f /usr/local/bin/lsd
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
