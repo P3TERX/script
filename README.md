@@ -53,17 +53,16 @@ curl -fsSL git.io/bashtop.sh | bash -s install
 
 ## gotop.sh
 
-Install the latest version [gotop](https://github.com/cjbassi/gotop)
+Install the latest version [gotop](https://github.com/xxxserxxx/gotop)
 
-- Download & Install gotop
+- Install gotop
 ```
-curl -fsSL git.io/gotop.sh | bash
-curl -fsSL git.io/gotop.sh | bash -s install
+curl -fsSL git.io/gotop.sh | sudo bash
 ```
 
 - Uninstall gotop
 ```
-[sudo] rm -f /usr/local/bin/gotop
+sudo rm -f /usr/local/bin/gotop
 ```
 
 ## ctop.sh
