@@ -230,6 +230,20 @@ curl -fsSL git.io/nali.sh | sudo bash
 sudo rm -f /usr/local/bin/nali
 ```
 
+## gping.sh
+
+Install latest version [gping](https://github.com/orf/gping/releases/latest)
+
+- Install gping
+```
+curl -fsSL git.io/gping.sh | sudo bash
+```
+
+- Uninstall gping
+```
+sudo rm -f /usr/local/bin/gping
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
