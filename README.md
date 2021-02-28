@@ -216,6 +216,20 @@ curl -fsSL git.io/lsd.sh | sudo bash
 sudo rm -f /usr/local/bin/lsd
 ```
 
+## nali.sh
+
+Install latest version [Nali](https://github.com/zu1k/nali/releases/latest)
+
+- Install Nali
+```
+curl -fsSL git.io/nali.sh | sudo bash
+```
+
+- Uninstall Nali
+```
+sudo rm -f /usr/local/bin/nali
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
