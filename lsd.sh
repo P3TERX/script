@@ -9,7 +9,7 @@
 # File name: lsd.sh
 # Description: Install latest version LSD (LSDeluxe)
 # System Required: GNU/Linux
-# Version: 0.9
+# Version: 1.0
 #
 
 set -o errexit
@@ -26,8 +26,7 @@ INFO="[${Green_font_prefix}INFO${Font_color_suffix}]"
 ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
 
 PROJECT_NAME='LSD (LSDeluxe)'
-#GH_API_URL='https://api.github.com/repos/Peltoche/lsd/releases/latest'
-GH_API_URL='https://api.github.com/repos/P3TERX/lsd/releases/latest'
+GH_API_URL='https://api.github.com/repos/Peltoche/lsd/releases/latest'
 BIN_NAME='lsd'
 BIN_DIR='/usr/local/bin'
 BIN_FILE="${BIN_DIR}/${BIN_NAME}"
