@@ -9,7 +9,7 @@
 # File name: wireguard-go.sh
 # Description: Install latest version wireguard-go
 # System Required: GNU/Linux
-# Version: 1.1
+# Version: 1.2
 #
 
 set -o errexit
@@ -62,7 +62,7 @@ aarch64 | arm64)
     FILE_KEYWORD='linux-arm64'
     ;;
 arm*)
-    FILE_KEYWORD='linux-arm'
+    FILE_KEYWORD='linux-arm\.'
     ;;
 *)
     echo -e "${ERROR} Unsupported architecture: ${OS_ARCH} ${PKGT}"
