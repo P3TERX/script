@@ -9,13 +9,12 @@
 # File name: gotop.sh
 # Description: Install latest version gotop
 # System Required: GNU/Linux
-# Version: 2.0
+# Version: 2.1
 #
 
 set -o errexit
 set -o errtrace
 set -o pipefail
-set -o nounset
 
 Green_font_prefix="\033[32m"
 Red_font_prefix="\033[31m"

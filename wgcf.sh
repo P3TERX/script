@@ -9,13 +9,12 @@
 # File name: wgcf.sh
 # Description: Install latest version wgcf
 # System Required: GNU/Linux
-# Version: 1.0
+# Version: 1.1
 #
 
 set -o errexit
 set -o errtrace
 set -o pipefail
-set -o nounset
 
 Green_font_prefix="\033[32m"
 Red_font_prefix="\033[31m"
