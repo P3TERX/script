@@ -9,7 +9,7 @@
 # File name: gotop.sh
 # Description: Install latest version gotop
 # System Required: GNU/Linux
-# Version: 2.1
+# Version: 2.2
 #
 
 set -o errexit
@@ -77,6 +77,9 @@ echo -e "${INFO} Download URL: ${DOWNLOAD_URL}"
 echo -e "${INFO} Installing ${PROJECT_NAME} ..."
 curl -LS "${DOWNLOAD_URL}" | tar xzC ${BIN_DIR} ${BIN_NAME}
 chmod +x ${BIN_FILE}
+if [[ ! $(echo ${PATH} | grep ${BIN_DIR}) ]]; then
+    ln -sf ${BIN_FILE} /usr/bin/${BIN_NAME}
+fi
 if [[ -s ${BIN_FILE} && $(${BIN_NAME} --version) ]]; then
     echo -e "${INFO} Done."
 else

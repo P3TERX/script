@@ -9,7 +9,7 @@
 # File name: lsd.sh
 # Description: Install latest version LSD (LSDeluxe)
 # System Required: GNU/Linux
-# Version: 1.1
+# Version: 1.2
 #
 
 set -o errexit
@@ -80,6 +80,9 @@ mkdir -p ${TMP_DIR}
 curl -LS "${DOWNLOAD_URL}" | tar xzC ${TMP_DIR} --strip-components 1
 install -m 755 ${TMP_DIR}/${BIN_NAME} ${BIN_FILE}
 rm -rf ${TMP_DIR}
+if [[ ! $(echo ${PATH} | grep ${BIN_DIR}) ]]; then
+    ln -sf ${BIN_FILE} /usr/bin/${BIN_NAME}
+fi
 if [[ -s ${BIN_FILE} && $(${BIN_NAME} --version) ]]; then
     echo -e "${INFO} Done."
 else
