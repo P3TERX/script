@@ -244,6 +244,14 @@ curl -fsSL git.io/gping.sh | sudo bash
 sudo rm -f /usr/local/bin/gping
 ```
 
+## hostname.sh
+
+Modify hostname
+
+```
+curl -fsSL git.io/hostname.sh | sudo bash -s <HOSTNAME>
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
