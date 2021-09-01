@@ -252,6 +252,20 @@ Modify hostname
 curl -fsSL git.io/hostname.sh | sudo bash -s <HOSTNAME>
 ```
 
+## cpufetch.sh
+
+Install latest version [cpufetch](https://github.com/Dr-Noob/cpufetch/releases/latest)
+
+- Install cpufetch
+```
+curl -fsSL git.io/cpufetch.sh | sudo bash
+```
+
+- Uninstall cpufetch
+```
+sudo rm -f /usr/local/bin/cpufetch
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
