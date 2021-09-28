@@ -266,6 +266,20 @@ curl -fsSL git.io/cpufetch.sh | sudo bash
 sudo rm -f /usr/local/bin/cpufetch
 ```
 
+## btop.sh
+
+Install latest version [btop](https://github.com/aristocratos/btop/releases/latest)
+
+- Install btop
+```
+curl -fsSL git.io/btop.sh | sudo bash
+```
+
+- Uninstall btop
+```
+sudo rm -f /usr/local/bin/btop
+```
+
 ## Lisence
 
 [MIT](https://github.com/P3TERX/script/blob/master/LICENSE) © P3TERX
