@@ -9,7 +9,7 @@
 # File name: speedtest-cli.sh
 # Description: Install Ookla Speedtest CLI
 # System Required: GNU/Linux
-# Version: 1.3
+# Version: 1.4
 #
 
 set -o errexit
@@ -70,7 +70,7 @@ esac
 echo -e "${INFO} Architecture: ${OS_ARCH} ${PKGT}"
 
 echo -e "${INFO} Get ${PROJECT_NAME} download URL ..."
-DOWNLOAD_URL="https://install.speedtest.net/app/cli/ookla-speedtest-1.0.0-${FILE_KEYWORD}-linux.tgz"
+DOWNLOAD_URL="https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-${FILE_KEYWORD}.tgz"
 echo -e "${INFO} Download URL: ${DOWNLOAD_URL}"
 
 echo -e "${INFO} Installing ${PROJECT_NAME} ..."
