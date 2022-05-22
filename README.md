@@ -194,7 +194,7 @@ Install [Ookla Speedtest CLI](https://www.speedtest.net/apps/cli)
 
 - Install Ookla Speedtest CLI
 ```
-curl -fsSL git.io/speedtest-cli.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/loreliu/script/master/speedtest-cli.sh | sudo bash
 ```
 
 - Uninstall Ookla Speedtest CLI
